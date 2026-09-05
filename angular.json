@@ -17,7 +17,7 @@
         "locales": {
           "en": {
             "translation": "src/locale/messages.en.xlf",
-            "baseHref": "/en/"
+            "baseHref": "/mi-portafolio/en/"
           }
         }
       },
@@ -45,7 +45,8 @@
           },
           "configurations": {
             "production": {
-              "localize": ["en", "es"],
+                     "localize": ["en", "es"],
+              "baseHref": "/mi-portafolio/",
               "budgets": [
                 {
                   "type": "initial",
