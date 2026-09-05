@@ -1,0 +1,285 @@
+<!-- Sección de Contacto - Diseño Profesional -->
+<section
+  class="min-h-screen py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white relative"
+>
+  <div class="max-w-6xl mx-auto">
+    <!-- Notificación flotante -->
+    <div *ngIf="showNotification" class="fixed top-6 right-6 z-50 max-w-md w-full animate-slide-in">
+      <div
+        [class]="
+          'rounded-2xl shadow-2xl border p-6 flex items-start gap-4 ' +
+          (notificationType === 'success' ? 'bg-emerald-50 border-emerald-200' : '') +
+          (notificationType === 'error' ? 'bg-red-50 border-red-200' : '') +
+          (notificationType === 'info' ? 'bg-blue-50 border-blue-200' : '')
+        "
+      >
+        <!-- Icono -->
+        <div
+          [class]="
+            'w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ' +
+            (notificationType === 'success' ? 'bg-emerald-100' : '') +
+            (notificationType === 'error' ? 'bg-red-100' : '') +
+            (notificationType === 'info' ? 'bg-blue-100' : '')
+          "
+        >
+          <i
+            [class]="
+              'fas ' +
+              notificationIcon +
+              ' text-xl ' +
+              (notificationType === 'success' ? 'text-emerald-600' : '') +
+              (notificationType === 'error' ? 'text-red-600' : '') +
+              (notificationType === 'info' ? 'text-blue-600' : '')
+            "
+          >
+          </i>
+        </div>
+
+        <!-- Contenido -->
+        <div class="flex-1 min-w-0">
+          <h4
+            [class]="
+              'font-bold text-sm ' +
+              (notificationType === 'success' ? 'text-emerald-800' : '') +
+              (notificationType === 'error' ? 'text-red-800' : '') +
+              (notificationType === 'info' ? 'text-blue-800' : '')
+            "
+          >
+            {{ notificationTitle }}
+          </h4>
+          <p
+            [class]="
+              'text-sm mt-1 ' +
+              (notificationType === 'success' ? 'text-emerald-700' : '') +
+              (notificationType === 'error' ? 'text-red-700' : '') +
+              (notificationType === 'info' ? 'text-blue-700' : '')
+            "
+          >
+            {{ notificationMessage }}
+          </p>
+          <!-- Barra de progreso -->
+          <div
+            *ngIf="notificationType === 'success'"
+            class="mt-3 w-full bg-emerald-200/50 rounded-full h-1 overflow-hidden"
+          >
+            <div class="bg-emerald-500 h-1 rounded-full animate-progress"></div>
+          </div>
+        </div>
+
+        <!-- Botón cerrar -->
+        <button
+          (click)="ocultarNotificacion()"
+          class="text-slate-400 hover:text-slate-600 transition-colors flex-shrink-0"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Encabezado de la sección -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span
+        class="inline-block text-sm font-semibold text-blue-600 uppercase tracking-wider bg-blue-50 px-4 py-1.5 rounded-full border border-blue-100"
+      >
+        Contacto
+      </span>
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-4 mb-4">
+        ¿Tienes un proyecto en mente?
+      </h2>
+      <p class="text-lg text-slate-500 leading-relaxed">
+        Estoy siempre abierto a nuevas oportunidades y colaboraciones. Hablemos sobre cómo puedo
+        ayudarte.
+      </p>
+    </div>
+
+    <!-- Grid de Contacto -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+      <!-- Columna Izquierda - Información de Contacto -->
+      <div class="lg:col-span-2 space-y-4">
+        <!-- Tarjeta de Email -->
+        <div
+          class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 flex items-start gap-4"
+        >
+          <div
+            class="w-12 h-12 rounded-xl bg-blue-50 group-hover:bg-blue-100 transition-colors flex items-center justify-center flex-shrink-0"
+          >
+            <i class="fas fa-envelope text-xl text-blue-600"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Email</p>
+            <a
+              href="mailto:isaacsalazarmolina0@gmail.com"
+              class="text-sm text-slate-700 hover:text-blue-600 transition-colors font-medium truncate block"
+            >
+              isaacsalazarmolina0@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta de Teléfono -->
+        <div
+          class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 flex items-start gap-4"
+        >
+          <div
+            class="w-12 h-12 rounded-xl bg-green-50 group-hover:bg-green-100 transition-colors flex items-center justify-center flex-shrink-0"
+          >
+            <i class="fas fa-phone text-xl text-green-600"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Teléfono</p>
+            <span class="text-sm text-slate-700 font-medium block"> +506 8497-4025 </span>
+          </div>
+        </div>
+
+        <!-- Tarjeta de LinkedIn -->
+        <div
+          class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 flex items-start gap-4"
+        >
+          <div
+            class="w-12 h-12 rounded-xl bg-[#0077b5]/10 group-hover:bg-[#0077b5]/20 transition-colors flex items-center justify-center flex-shrink-0"
+          >
+            <i class="fab fa-linkedin-in text-xl text-[#0077b5]"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">LinkedIn</p>
+            <a
+              href="https://linkedin.com/in/isaac-salazar-molina-8b30963b7"
+              target="_blank"
+              class="text-sm text-slate-700 hover:text-[#0077b5] transition-colors font-medium block"
+            >
+              Conectar en LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta de GitHub -->
+        <div
+          class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 flex items-start gap-4"
+        >
+          <div
+            class="w-12 h-12 rounded-xl bg-slate-100 group-hover:bg-slate-200 transition-colors flex items-center justify-center flex-shrink-0"
+          >
+            <i class="fab fa-github text-xl text-slate-700"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">GitHub</p>
+            <a
+              href="https://github.com/Ismz922"
+              target="_blank"
+              class="text-sm text-slate-700 hover:text-slate-900 transition-colors font-medium block"
+            >
+              Ver repositorios
+            </a>
+          </div>
+        </div>
+
+        <!-- Badge de respuesta rápida -->
+        <div
+          class="mt-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-5 border border-blue-100"
+        >
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">⚡</span>
+            <div>
+              <p class="font-semibold text-slate-800 text-sm">Respuesta rápida</p>
+              <p class="text-xs text-slate-500">Respondo en menos de 24 horas</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Derecha - Formulario -->
+      <div class="lg:col-span-3">
+        <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-6 md:p-8">
+          <form id="contact-form" (ngSubmit)="sendEmail()" class="space-y-6">
+            <!-- Nombre -->
+            <div>
+              <label for="name" class="block text-sm font-medium text-slate-700 mb-1.5">
+                Nombre completo <span class="text-red-500">*</span>
+              </label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <i class="fas fa-user text-slate-400 text-sm"></i>
+                </div>
+                <input
+                  type="text"
+                  id="name"
+                  [(ngModel)]="formData.name"
+                  name="name"
+                  required
+                  placeholder="Ej: Juan Pérez"
+                  class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200"
+                />
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label for="email" class="block text-sm font-medium text-slate-700 mb-1.5">
+                Correo electrónico <span class="text-red-500">*</span>
+              </label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <i class="fas fa-envelope text-slate-400 text-sm"></i>
+                </div>
+                <input
+                  type="email"
+                  id="email"
+                  [(ngModel)]="formData.email"
+                  name="email"
+                  required
+                  placeholder="ejemplo@correo.com"
+                  class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200"
+                />
+              </div>
+            </div>
+
+            <!-- Mensaje -->
+            <div>
+              <label for="message" class="block text-sm font-medium text-slate-700 mb-1.5">
+                Mensaje <span class="text-red-500">*</span>
+              </label>
+              <div class="relative">
+                <div class="absolute top-3 left-3 pointer-events-none">
+                  <i class="fas fa-pen text-slate-400 text-sm"></i>
+                </div>
+                <textarea
+                  id="message"
+                  [(ngModel)]="formData.message"
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Cuéntame sobre tu proyecto, idea u oportunidad..."
+                  class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 resize-none"
+                ></textarea>
+              </div>
+              <div class="flex justify-between mt-1.5">
+                <p class="text-xs text-slate-400">
+                  <span class="text-red-500">*</span> Campos obligatorios
+                </p>
+                <p class="text-xs text-slate-400">
+                  <span id="charCount">{{ formData.message.length }}</span> / 500
+                </p>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3.5 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 flex items-center justify-center gap-2 group"
+            >
+              Enviar Mensaje
+              <i
+                class="fas fa-paper-plane group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
+              ></i>
+            </button>
+
+            <!-- Mensaje de confianza -->
+            <p class="text-xs text-slate-400 text-center flex items-center justify-center gap-1.5">
+              <i class="fas fa-lock text-slate-300"></i>
+              Tu información está segura. No comparto tus datos con terceros.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,226 @@
+<section class="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
+  <div class="max-w-7xl mx-auto">
+    <!-- Encabezado de la sección -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span
+        class="inline-block text-sm font-semibold text-blue-600 uppercase tracking-wider bg-blue-50 px-4 py-1.5 rounded-full border border-blue-100"
+      >
+        Portafolio
+      </span>
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-4 mb-4">Mis Proyectos</h2>
+      <p class="text-lg text-slate-500 leading-relaxed">
+        Proyectos que he desarrollado para resolver problemas reales, combinando tecnología y
+        creatividad.
+      </p>
+    </div>
+
+    <!-- Grid de proyectos -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div
+        *ngFor="let project of projects"
+        class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-100"
+      >
+        <!-- Carrusel de imágenes -->
+        <div class="relative overflow-hidden bg-gradient-to-br from-slate-100 to-blue-50/30 h-56">
+          <!-- Imagen actual -->
+          <img
+            [src]="getCurrentImage(project)"
+            [alt]="project.title"
+            (click)="openModal(project.id, getCurrentIndex(project.id), $event)"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:brightness-95 cursor-pointer"
+          />
+
+          <!-- Overlay con ícono de zoom -->
+          <div
+            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none"
+          >
+            <div
+              class="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-xl transform scale-90 group-hover:scale-100 transition-transform duration-300"
+            >
+              <i class="fas fa-expand text-slate-700 text-lg"></i>
+            </div>
+          </div>
+
+          <!-- Controles del carrusel (si hay múltiples imágenes) -->
+          <div
+            *ngIf="hasMultipleImages(project)"
+            class="absolute inset-0 flex items-center justify-between px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+          >
+            <button
+              (click)="prevImage(project.id, $event)"
+              class="w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center hover:bg-white transition-colors text-slate-700 hover:text-blue-600 pointer-events-auto"
+            >
+              <i class="fas fa-chevron-left text-sm"></i>
+            </button>
+            <button
+              (click)="nextImage(project.id, $event)"
+              class="w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center hover:bg-white transition-colors text-slate-700 hover:text-blue-600 pointer-events-auto"
+            >
+              <i class="fas fa-chevron-right text-sm"></i>
+            </button>
+          </div>
+
+          <!-- Indicadores de página (puntos) -->
+          <div
+            *ngIf="hasMultipleImages(project)"
+            class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 pointer-events-none"
+          >
+            <span
+              *ngFor="let img of project.images; let i = index"
+              [class]="
+                'w-1.5 h-1.5 rounded-full transition-all duration-300 ' +
+                (i === getCurrentIndex(project.id) ? 'bg-white w-4' : 'bg-white/50')
+              "
+            >
+            </span>
+          </div>
+
+          <!-- Badge de estado -->
+          <div class="absolute top-4 right-4">
+            <span
+              class="bg-white/90 backdrop-blur-sm text-slate-700 text-xs font-medium px-3 py-1 rounded-full shadow-md border border-white/50 pointer-events-none"
+            >
+              {{ project.status || 'Completado' }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Contenido de la tarjeta -->
+        <div class="p-6">
+          <!-- Fecha y tipo -->
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-xs font-medium text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full">
+              {{ project.type || 'Proyecto' }}
+            </span>
+            <span class="text-xs text-slate-400">
+              <i class="far fa-calendar-alt mr-1"></i>
+              {{ project.date }}
+            </span>
+          </div>
+
+          <!-- Título -->
+          <h3
+            class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors"
+          >
+            {{ project.title }}
+          </h3>
+
+          <!-- Descripción -->
+          <p class="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">
+            {{ project.description }}
+          </p>
+
+          <!-- Tecnologías -->
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span
+              *ngFor="let tech of project.technologies"
+              class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full text-xs font-medium hover:bg-blue-50 hover:text-blue-600 transition-colors"
+            >
+              {{ tech }}
+            </span>
+          </div>
+
+          <!-- Enlaces -->
+          <div class="flex items-center gap-4 pt-3 border-t border-slate-100">
+            <a
+              *ngIf="project.github"
+              [href]="project.github"
+              target="_blank"
+              class="text-sm text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-1.5 font-medium"
+            >
+              <i class="fab fa-github"></i>
+              Código
+            </a>
+            <a
+              *ngIf="project.demo"
+              [href]="project.demo"
+              target="_blank"
+              class="text-sm text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-1.5 font-medium"
+            >
+              <i class="fas fa-external-link-alt"></i>
+              Demo
+            </a>
+            <span *ngIf="!project.github && !project.demo" class="text-sm text-slate-400 italic">
+              Proyecto Profesional
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MODAL DE IMAGEN (Lightbox) ===== -->
+<div
+  *ngIf="modalOpen"
+  class="fixed inset-0 z-[999] bg-black/90 flex items-center justify-center p-4 animate-fade-in"
+  (click)="closeModal()"
+  (keydown)="onKeydown($event)"
+  tabindex="0"
+>
+  <!-- Contenedor del modal -->
+  <div
+    class="relative max-w-5xl w-full max-h-[90vh] flex flex-col"
+    (click)="$event.stopPropagation()"
+  >
+    <!-- Cabecera del modal -->
+    <div class="flex items-center justify-between text-white mb-4 px-2">
+      <h3 class="text-lg font-semibold">{{ modalTitle }}</h3>
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-white/60"> {{ modalIndex + 1 }} / {{ modalImages.length }} </span>
+        <button
+          (click)="closeModal()"
+          class="text-white/70 hover:text-white transition-colors text-2xl"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Imagen -->
+    <div
+      class="relative flex-1 flex items-center justify-center bg-black/40 rounded-2xl overflow-hidden"
+    >
+      <img
+        [src]="modalImage"
+        [alt]="modalTitle"
+        class="max-w-full max-h-[70vh] object-contain animate-scale-in"
+      />
+
+      <!-- Controles de navegación del modal -->
+      <button
+        *ngIf="modalImages.length > 1"
+        (click)="modalPrev($event)"
+        class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-colors text-white flex items-center justify-center"
+      >
+        <i class="fas fa-chevron-left text-lg"></i>
+      </button>
+      <button
+        *ngIf="modalImages.length > 1"
+        (click)="modalNext($event)"
+        class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-colors text-white flex items-center justify-center"
+      >
+        <i class="fas fa-chevron-right text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Miniaturas (thumbnails) -->
+    <div
+      *ngIf="modalImages.length > 1"
+      class="flex gap-2 mt-4 justify-center overflow-x-auto px-4 py-2"
+    >
+      <img
+        *ngFor="let img of modalImages; let i = index"
+        [src]="img"
+        [alt]="'Imagen ' + (i + 1)"
+        (click)="modalIndex = i; modalImage = modalImages[i]"
+        [class]="
+          'w-16 h-12 object-cover rounded-lg cursor-pointer transition-all duration-300 ' +
+          (i === modalIndex
+            ? 'ring-2 ring-blue-500 ring-offset-2 ring-offset-black scale-110'
+            : 'opacity-50 hover:opacity-100')
+        "
+      />
+    </div>
+  </div>
+</div>

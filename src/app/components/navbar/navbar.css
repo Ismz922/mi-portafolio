@@ -1,0 +1,57 @@
+/* Transición suave para el navbar */
+nav {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efecto hover en los enlaces */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #3b82f6, #6366f1);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.router-link-active::after {
+  width: 70%;
+}
+
+/* Animación del menú móvil */
+.max-h-0 {
+  max-height: 0;
+}
+
+.max-h-\[500px\] {
+  max-height: 500px;
+}
+
+/* Estilo del botón de menú móvil */
+button .block {
+  transform-origin: center;
+}
+
+/* Icono de descarga con efecto brillo */
+.group-hover\:translate-x-0 {
+  transform: translateX(0);
+}
+
+.-translate-x-full {
+  transform: translateX(-100%);
+}
+
+/* Mejora del scrollbar en móvil */
+@media (max-width: 1023px) {
+  .overflow-hidden {
+    overflow: hidden;
+  }
+}

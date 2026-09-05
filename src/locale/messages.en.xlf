@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="en" datatype="html" original="ngx.template" product-version="22.1.4">
+    <body>
+      <!-- Hero Section -->
+      <trans-unit id="1781969759219954564" datatype="html">
+        <source>Disponible para oportunidades</source>
+        <target>Available for opportunities</target>
+      </trans-unit>
+      
+      <trans-unit id="586341112727268928" datatype="html">
+        <source>Hola, soy</source>
+        <target>Hello, I'm</target>
+      </trans-unit>
+      
+      <trans-unit id="7167343235836851568" datatype="html">
+        <source>Desarrollador Full-Stack &amp; Analista de Datos</source>
+        <target>Full-Stack Developer &amp; Data Analyst</target>
+      </trans-unit>
+      
+      <trans-unit id="583346682825822857" datatype="html">
+        <source>Estudiante de Ingeniería del Software con experiencia en JavaScript, TypeScript, Angular, Laravel y Python. Especializado en crear soluciones tecnológicas eficientes que optimizan procesos y generan valor.</source>
+        <target>Software Engineering student with experience in JavaScript, TypeScript, Angular, Laravel and Python. Specialized in creating efficient technological solutions that optimize processes and generate value.</target>
+      </trans-unit>
+      
+      <trans-unit id="5448665744496649163" datatype="html">
+        <source>Ver Proyectos</source>
+        <target>View Projects</target>
+      </trans-unit>
+      
+      <trans-unit id="696434890608670563" datatype="html">
+        <source>Contactarme</source>
+        <target>Contact Me</target>
+      </trans-unit>
+      
+      <trans-unit id="2856906001956141629" datatype="html">
+        <source>Años de estudio</source>
+        <target>Years of Study</target>
+      </trans-unit>
+      
+      <trans-unit id="3240205617154274305" datatype="html">
+        <source>Proyectos realizados</source>
+        <target>Completed Projects</target>
+      </trans-unit>
+      
+      <trans-unit id="2373590563468336979" datatype="html">
+        <source>Tecnologías dominadas</source>
+        <target>Technologies Mastered</target>
+      </trans-unit>
+      
+      <!-- Skills Section -->
+      <trans-unit id="5191125537678217076" datatype="html">
+        <source>Stack Tecnológico</source>
+        <target>Tech Stack</target>
+      </trans-unit>
+      
+      <trans-unit id="7207374912676801866" datatype="html">
+        <source>Herramientas que domino</source>
+        <target>Tools I Master</target>
+      </trans-unit>
+      
+      <trans-unit id="264647230814012153" datatype="html">
+        <source>Tecnologías con las que he trabajado en proyectos académicos y profesionales</source>
+        <target>Technologies I've worked with in academic and professional projects</target>
+      </trans-unit>
+      
+      <!-- Navbar -->
+      <trans-unit id="5330740444532163516" datatype="html">
+        <source>Isaac Salazar</source>
+        <target>Isaac Salazar</target>
+      </trans-unit>
+      
+      <trans-unit id="758253031863754558" datatype="html">
+        <source>FULL-STACK DEV</source>
+        <target>FULL-STACK DEV</target>
+      </trans-unit>
+      
+      <trans-unit id="1926157928707021468" datatype="html">
+        <source>Inicio</source>
+        <target>Home</target>
+      </trans-unit>
+      
+      <trans-unit id="1872099000671699527" datatype="html">
+        <source>Proyectos</source>
+        <target>Projects</target>
+      </trans-unit>
+      
+      <trans-unit id="8433768950518578342" datatype="html">
+        <source>Contacto</source>
+        <target>Contact</target>
+      </trans-unit>
+      
+      <trans-unit id="7467967706335052580" datatype="html">
+        <source>Descargar CV</source>
+        <target>Download CV</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
