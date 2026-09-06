@@ -36,6 +36,11 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "assets"
+              },
+              {
+                "glob": "404.html",
+                "input": "src",
+                "output": "/"
               }
             ],
             "styles": [
@@ -45,7 +50,10 @@
           },
           "configurations": {
             "production": {
-              "localize": ["en", "es"],
+              "localize": [
+                "en",
+                "es"
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -61,17 +69,23 @@
               "outputHashing": "all"
             },
             "development": {
-              "localize": ["es"],
+              "localize": [
+                "es"
+              ],
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
             },
             "en": {
-              "localize": ["en"],
+              "localize": [
+                "en"
+              ],
               "baseHref": "/en/"
             },
             "es": {
-              "localize": ["es"],
+              "localize": [
+                "es"
+              ],
               "baseHref": "/es/"
             }
           },
