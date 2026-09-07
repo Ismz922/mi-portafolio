@@ -26,7 +26,7 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
-            "outputPath": "docs",
+            "outputPath": "dist/mi-portafolio",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -76,14 +76,13 @@
             "en": {
               "localize": [
                 "en"
-              ],
-              "baseHref": "/mi-portafolio/en/"
+              ]
+             
             },
             "es": {
               "localize": [
                 "es"
-              ],
-              "baseHref": "/mi-portafolio/"
+              ]
             }
           },
           "defaultConfiguration": "production"
