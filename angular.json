@@ -26,6 +26,7 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
+            "outputPath": "docs",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -45,7 +46,10 @@
           },
           "configurations": {
             "production": {
-              "localize": ["en", "es"],
+              "localize": [
+                "en",
+                "es"
+              ],
               "baseHref": "/mi-portafolio/",
               "budgets": [
                 {
@@ -62,17 +66,23 @@
               "outputHashing": "all"
             },
             "development": {
-              "localize": ["es"],
+              "localize": [
+                "es"
+              ],
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
             },
             "en": {
-              "localize": ["en"],
+              "localize": [
+                "en"
+              ],
               "baseHref": "/mi-portafolio/en/"
             },
             "es": {
-              "localize": ["es"],
+              "localize": [
+                "es"
+              ],
               "baseHref": "/mi-portafolio/"
             }
           },
