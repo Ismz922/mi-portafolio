@@ -1,6 +1,6 @@
 {
   "buildCommand": "ng build --configuration production",
-  "outputDirectory": "docs",
+  "outputDirectory": "dist/mi-portafolio/browser",
   "devCommand": "ng serve",
   "installCommand": "npm install"
 }
