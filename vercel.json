@@ -1,0 +1,6 @@
+{
+  "buildCommand": "ng build --configuration production",
+  "outputDirectory": "docs",
+  "devCommand": "ng serve",
+  "installCommand": "npm install"
+}
